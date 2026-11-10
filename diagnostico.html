@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagnóstico do museu · Vozes que Não se Calam</title>
+  <style>
+    :root{color-scheme:light}body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#f2e8d5;color:#30251f;margin:0;line-height:1.55}
+    main{max-width:850px;margin:auto;padding:32px 20px 60px}h1{font-family:Georgia,serif;font-size:clamp(29px,5vw,45px);margin-bottom:10px}
+    p{max-width:75ch}.intro{color:#695648}ul{list-style:none;padding:0;margin-top:24px}li{border:1px solid #cdbda9;background:#faf7f0;padding:12px 16px;margin-bottom:8px;border-radius:6px}
+    .ok{border-left:5px solid #3f7658}.fail{border-left:5px solid #ae443e}.pending{border-left:5px solid #ba8b45}
+    li strong{display:block}li code{font-size:14px;overflow-wrap:anywhere}li small{display:block;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:3px}
+    a{color:#8d422f}button{padding:10px 20px;background:#30251f;border:none;color:white;border-radius:5px;cursor:pointer}
+  </style>
+</head>
+<body><main>
+  <p><a href="./index.html">← Voltar ao museu</a></p>
+  <h1>Diagnóstico do museu</h1>
+  <p class="intro">Esta página testa se o GitHub Pages está entregando os arquivos HTML, CSS e JavaScript esperados. Também verifica a sintaxe dos arquivos JavaScript, sem executá-los.</p>
+  <button id="run" type="button">Testar novamente</button>
+  <p id="summary" role="status" aria-live="polite">Iniciando verificação…</p>
+  <ul id="results"></ul>
+  <p><small>Os caminhos são relativos à pasta do repositório. Nenhuma informação é enviada para fora do navegador.</small></p>
+</main>
+<script>
+(function () {
+  'use strict';
+  var files = [
+    'index.html', 'editor.html',
+    'css/style.css', 'css/responsive.css', 'css/admin.css', 'css/editor.css',
+    'js/dados.js', 'js/utils.js', 'js/acervo.js', 'js/mapa.js', 'js/galerias.js', 'js/main.js', 'js/editor.js'
+  ];
+  var list=document.getElementById('results'), summary=document.getElementById('summary');
+  function createRow(path) {
+    var li=document.createElement('li'); li.className='pending';
+    var name=document.createElement('strong');name.textContent=path;
+    var detail=document.createElement('small');detail.textContent='Verificando…';
+    li.append(name,detail);list.append(li);return {li:li,detail:detail};
+  }
+  async function run() {
+    list.replaceChildren();summary.textContent='Verificando arquivos…';
+    var count=0;
+    for(var i=0;i<files.length;i++) {
+      var path=files[i], row=createRow(path), error='';
+      try {
+        var response=await fetch('./'+path+'?teste='+Date.now(),{cache:'no-store'});
+        if(!response.ok) throw new Error('Erro HTTP '+response.status+' — caminho não encontrado ou não publicado.');
+        var content=await response.text();
+        if(content.length===0) throw new Error('O arquivo está vazio.');
+        if(path.endsWith('.js')) {
+          try {new Function(content);} catch(syntaxError) {throw new Error('Erro de sintaxe JavaScript: '+syntaxError.message);}
+        }
+        row.li.className='ok';row.detail.textContent='OK · HTTP '+response.status+' · '+content.length+' caracteres';count++;
+      } catch(e) {
+        row.li.className='fail';row.detail.textContent=e.message || String(e);
+      }
+    }
+    summary.textContent=count===files.length?'Tudo certo: '+count+' de '+files.length+' arquivos disponíveis e scripts com sintaxe válida.':
+      'Atenção: '+count+' de '+files.length+' arquivos aprovados. Consulte os itens em vermelho.';
+  }
+  document.getElementById('run').addEventListener('click',run);
+  run();
+}());
+</script>
+</body></html>

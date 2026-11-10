@@ -1,49 +1,218 @@
-(()=>{
-const {$,$$,escapeHtml:h,safeUrl,renderMap,cardsHtml,refsHtml,renderGallery,bindGalleryExtras,bindDialog}=window.Museu;
-const state={galleries:[],projects:[],messages:[],references:[],settings:{},visited:[]};
-try{state.visited=JSON.parse(localStorage.getItem('museu-visitadas')||'[]');if(!Array.isArray(state.visited))state.visited=[];}catch{state.visited=[];}
-const $view=$('#view');
-const cap=(g)=>`<a href="#galeria/${h(g.id)}" class="collection-card" style="--accent:${h(g.color)}"><span>GALERIA ${String(g.order).padStart(2,'0')}</span><div class="card-art" aria-hidden="true">${h(g.letter||'✦')}</div><h3>${h(g.name)}</h3><p>${h(g.subtitle||g.title)}</p><div class="card-footer"><span>VISITAR EXPOSIÇÃO</span><strong aria-hidden="true">↗</strong></div></a>`;
-function home(){const gs=state.galleries;return `<section class="intro wrap" id="inicio"><div><div class="section-eyebrow">Museu Virtual de Memória, Literatura e Educação Antirracista</div><h1 class="display">Vozes que<br><em>não se</em> calam<span style="color:var(--ochre)">.</span></h1></div><div class="intro-aside"><p>As histórias que moldam um país também são contadas por quem ele tentou silenciar.</p><a class="button" href="#explorar">Iniciar visita <span aria-hidden="true">↗</span></a><div class="intro-counter"><strong>${String(gs.length).padStart(2,'0')}</strong><span>Galerias para<br>explorar</span></div></div></section>
- <section class="museum-section" id="explorar"><div class="wrap"><div class="map-heading"><div><div class="section-eyebrow eyebrow-light">Um museu para percorrer</div><h2>Escolha por onde<br><em>começar.</em></h2></div><p>Explore a planta arquitetônica. Cada ambiente guarda uma nova perspectiva sobre literatura, memória e transformação social.</p></div><div class="map-layout"><div class="map-card"><div class="map-toolbar"><span>PLANTA BAIXA · PAVIMENTO TÉRREO</span><div class="map-tools"><span>AMPLIAR</span><button id="map-zoom-out" type="button" aria-label="Diminuir planta">−</button><button id="map-zoom-in" type="button" aria-label="Ampliar planta">+</button><button id="map-reset" type="button" aria-label="Restaurar tamanho original">⟳</button></div></div><div class="map-viewport" id="map-viewport"><div id="museum-map"></div></div><div class="map-caption"><span>Selecione uma sala no mapa</span><span>Área de circulação central · Entrada inferior</span></div></div><aside class="map-sidebar"><div class="room-links">${gs.map(g=>`<button class="room-link" data-room-id="${h(g.id)}"><span class="room-link-num">${String(g.order).padStart(2,'0')}</span><span><b>${h(g.name)}</b><small>${h(g.theme)}</small></span></button>`).join('')}</div><div class="map-hint"><span>⌖</span><p>Clique nas salas para entrar. As salas visitadas ficam marcadas na planta.</p></div><span class="progress-label">${state.visited.filter(id=>gs.some(g=>g.id===id)).length} de ${gs.length} salas visitadas</span></aside></div></div></section>
- <section class="collections wrap" id="galerias"><div class="collections-head"><div><div class="section-eyebrow">O acervo permanente</div><h2 class="section-heading">Galerias do museu.</h2></div><p>Exposições para pensar a história do Brasil por meio da escrita de Carolina Maria de Jesus.</p></div><div class="collection-grid">${gs.map(cap).join('')}</div></section>
- <section class="quote-band"><div class="wrap"><p>A memória preserva histórias.<br><em>A educação transforma futuros.</em></p><small>Vozes que Não se Calam · Museu Virtual</small></div></section><section class="about-teaser wrap"><div><div class="section-eyebrow">Sobre o projeto</div><h2 class="section-heading">Um espaço de escuta,<br>aprendizado e criação.</h2><p>Inspirado na obra <em>Quarto de Despejo</em>, este museu convida estudantes, educadores e visitantes a conhecer Carolina Maria de Jesus e a refletir sobre racismo, desigualdade, direitos e literatura.</p><p>As produções da comunidade escolar também têm lugar nas exposições — porque aprender é, muitas vezes, criar novas formas de contar.</p><a class="button ghost" href="#sobre">Conheça o projeto ↗</a></div><div class="about-ornament" role="img" aria-label="Arte gráfica abstrata, com molduras sobrepostas e a letra V; ilustração original"><span>V.</span></div></section>`;}
-function about(){const s=state.settings.institution||{};return `<article class="plain-page wrap"><div class="section-eyebrow">Institucional</div><h1 class="display">Sobre o<br><em>projeto.</em></h1><div class="reading"><p class="lead">Uma iniciativa educativa para valorizar a memória, a literatura e a educação antirracista.</p><p><strong>Vozes que Não se Calam</strong> nasceu como proposta de museu virtual centrado na obra <em>Quarto de Despejo: Diário de uma Favelada</em>, de Carolina Maria de Jesus. As salas relacionam literatura, história e direitos humanos e permitem conhecer projetos criados pela comunidade escolar.</p><p>O propósito é construir um espaço acessível de leitura, pesquisa, diálogo e reflexão. O ambiente reúne textos educativos originais, exposições temáticas e recursos interativos; não pretende substituir a leitura integral dos livros.</p><h2 class="subheading">Como visitar</h2><p>Comece pela <a href="#explorar">planta do museu</a>, selecione uma sala e abra os quadros para ler os painéis. Você também pode usar o catálogo de galerias, disponível em qualquer dispositivo. Nenhum cadastro é necessário para visitar.</p>${s.school?`<h2 class="subheading">Escola participante</h2><p>${h(s.school)}</p>`:''}${s.team?`<h2 class="subheading">Equipe</h2><p>${h(s.team)}</p>`:''}<div class="statement">A memória preserva histórias. A educação transforma futuros.</div></div></article>`;}
-function credits(){const s=state.settings.institution||{};return `<article class="plain-page wrap"><div class="section-eyebrow">Autoria e responsabilidade</div><h1 class="display">Créditos &<br><em>referências.</em></h1><div class="reading"><p class="lead">Uma experiência educativa inspirada em fontes históricas e na obra literária de Carolina Maria de Jesus.</p><h2 class="subheading">Referências do acervo</h2><ul class="reference-list">${refsHtml(state.references)}</ul><h2 class="subheading">Créditos do projeto</h2><p>${h(s.credits||'Textos expositivos e elementos gráficos elaborados para este museu virtual.')}</p>${s.team?`<p><b>Equipe:</b> ${h(s.team)}</p>`:''}${s.school?`<p><b>Instituição:</b> ${h(s.school)}</p>`:''}<h2 class="subheading">Uso responsável de imagens</h2><p>As composições gráficas das salas são ilustrações abstratas originais, não fotografias, documentos ou reconstruções historicamente exatas. Imagens enviadas pelos responsáveis devem possuir direitos ou autorizações apropriadas. Para fotografias com estudantes, inclusive menores de idade, a escola deve obter autorização adequada antes da publicação.</p><p>Não há reprodução integral de trechos do livro. Os textos explicativos deste museu são materiais didáticos e não substituem a leitura das obras e de fontes acadêmicas.</p></div></article>`;}
-function acervo(){return `<section class="plain-page wrap"><div class="section-eyebrow">Busca no acervo</div><h1 class="display">Encontre uma<br><em>história.</em></h1><p class="lead">Pesquise por salas, temas, autoras, obras e produções escolares.</p><label class="micro" for="search-acervo">Pesquisar no acervo</label><div><input type="search" class="search" id="search-acervo" placeholder="Ex.: Carolina, resistência, moradia, jogos..." autocomplete="off"></div><p class="muted micro" id="search-count"></p><div id="search-results">${cardsHtml(state.galleries,state.projects)}</div></section>`;}
-function projectsScreen(p){return `<article class="plain-page wrap"><div class="breadcrumbs"><a href="#galeria/projetos">← Voltar aos projetos escolares</a></div><div class="section-eyebrow">${h(p.category||'Projeto da comunidade escolar')}</div><h1 class="display">${h(p.title)}</h1><div class="reading"><p class="lead">${h(p.description)}</p><p>${p.teacher?`<b>Professor(a):</b> ${h(p.teacher)}<br>`:''}${p.subject?`<b>Disciplina:</b> ${h(p.subject)}<br>`:''}${p.class?`<b>Turma:</b> ${h(p.class)}`:''}</p>${p.objectives?`<h2 class="subheading">Objetivos</h2><p>${h(p.objectives)}</p>`:''}${p.images?.length?`<h2 class="subheading">Galeria de imagens</h2><div class="project-media">${p.images.map(url=>`<a href="${h(safeUrl(url))}" target="_blank" rel="noopener noreferrer"><img src="${h(safeUrl(url))}" loading="lazy" alt="Imagem do projeto ${h(p.title)}, publicada pela equipe escolar"></a>`).join('')}</div>`:''}${p.results?`<h2 class="subheading">Resultados</h2><p>${h(p.results)}</p>`:''}${p.links?.length?`<h2 class="subheading">Arquivos e links</h2><ul>${p.links.map(l=>`<li><a href="${h(safeUrl(l))}" target="_blank" rel="noopener noreferrer">Abrir recurso ↗</a></li>`).join('')}</ul>`:''}${p.credits?`<p class="muted"><b>Créditos:</b> ${h(p.credits)}</p>`:''}</div></article>`;}
-function bindHome(){const holder=$('#museum-map');if(!holder)return;const svg=renderMap(holder,state.galleries,id=>location.hash='#galeria/'+id,state.visited);
- $$('.room-link').forEach(b=>b.onclick=()=>location.hash='#galeria/'+b.dataset.roomId);
- let scale=1;function zoom(delta){scale=Math.max(.85,Math.min(2.4,scale+delta));svg.style.transform=`scale(${scale})`;holder.parentElement.style.overflow=scale>1?'auto':'hidden';svg.style.transformOrigin='top left';if(scale>1){svg.style.width=(100*scale)+'%';svg.style.transform='none';}else{svg.style.width='100%';svg.style.transform='none';}}
- $('#map-zoom-in').onclick=()=>zoom(.25);$('#map-zoom-out').onclick=()=>zoom(-.25);$('#map-reset').onclick=()=>{scale=1;svg.style.width='100%';holder.parentElement.style.overflow='hidden';};
-}
-function bindAcervo(){const search=$('#search-acervo');if(!search)return;function update(){const q=search.value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();const gs=state.galleries.filter(g=>[g.name,g.subtitle,g.description,...g.panels.flatMap(p=>[p.title,p.text])].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(q));const ps=state.projects.filter(p=>[p.title,p.description,p.teacher,p.subject,p.category].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(q));$('#search-results').innerHTML=gs.length||ps.length?cardsHtml(gs,ps):'<div class="empty-state">Nenhum resultado encontrado. Tente outra palavra-chave.</div>';$('#search-count').textContent=`${gs.length+ps.length} resultado(s)`;}search.addEventListener('input',update);update();}
-function route(){const hash=decodeURIComponent(location.hash.slice(1)||'inicio');const parts=hash.split('/');
- if(['inicio','explorar','galerias'].includes(hash)){$view.innerHTML=home();bindHome();if(hash!=='inicio')setTimeout(()=>document.getElementById(hash)?.scrollIntoView(),40);else window.scrollTo(0,0);}
- else if(parts[0]==='galeria'){const g=state.galleries.find(g=>g.id===parts[1]);if(!g){$view.innerHTML=notFound();}else{if(!state.visited.includes(g.id)){state.visited.push(g.id);try{localStorage.setItem('museu-visitadas',JSON.stringify(state.visited));}catch{}}$view.innerHTML=renderGallery(g,state.galleries,state.projects,state.messages);bindDialog(g);bindGalleryExtras(g);window.scrollTo(0,0);}}
- else if(parts[0]==='projeto'){const p=state.projects.find(p=>p.id===parts[1]);$view.innerHTML=p?projectsScreen(p):notFound();window.scrollTo(0,0);}
- else if(hash==='sobre'){$view.innerHTML=about();window.scrollTo(0,0);}
- else if(hash==='creditos'){$view.innerHTML=credits();window.scrollTo(0,0);}
- else if(hash==='acervo'){$view.innerHTML=acervo();bindAcervo();window.scrollTo(0,0);}
- else{$view.innerHTML=notFound();window.scrollTo(0,0);}
- $$('.main-nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+hash));const nav=$('#main-nav');nav.classList.remove('open');$('#mobile-menu').setAttribute('aria-expanded','false');
-}
-const notFound=()=>`<section class="plain-page wrap"><div class="section-eyebrow">Sala não encontrada</div><h1 class="display">Esta porta não<br><em>está aberta.</em></h1><p>A exposição pode ter sido movida ou arquivada.</p><a href="#explorar" class="button">Voltar à planta ↗</a></section>`;
-$('#mobile-menu').onclick=()=>{const open=$('#main-nav').classList.toggle('open');$('#mobile-menu').setAttribute('aria-expanded',String(open));};
-function init(){
- try{
-  let data=window.MUSEU_DADOS;
-  const preview=new URLSearchParams(location.search).has('rascunho');
-  if(preview){try{const draft=localStorage.getItem('museu-editor-rascunho-v2');if(draft)data=JSON.parse(draft);}catch{}}
-  if(!data || !Array.isArray(data.galleries))throw new Error('Dados inválidos.');
-  state.galleries=(data.galleries||[]).filter(g=>g.published!==false&&!g.archived).sort((a,b)=>Number(a.order)-Number(b.order));
-  state.projects=(data.projects||[]).filter(p=>p.published===true);
-  state.messages=(data.messages||[]).filter(m=>m.status==='approved');
-  state.references=data.references||[];
-  state.settings=data.settings||{institution:{}};
-  route();window.addEventListener('hashchange',route);
-  if(preview){const note=document.createElement('div');note.className='preview-notice';note.textContent='PRÉVIA LOCAL · conteúdo do rascunho deste navegador · nada foi publicado no GitHub';document.body.append(note);}
- }catch(err){$view.innerHTML=`<section class="plain-page wrap"><h1 class="display">Não foi possível abrir o acervo.</h1><p>Verifique o arquivo js/dados.js e recarregue a página.</p></section>`;console.error(err);}
-}
-init();
+/*
+  Vozes que Não se Calam — navegação estática para GitHub Pages.
+  A planta é a ÚNICA entrada para as salas. Não existe catálogo separado.
+  Conteúdos editáveis permanecem em js/dados.js.
+*/
+(() => {
+  'use strict';
+  const api = window.Museu || {};
+  const view = document.getElementById('view');
+  const menu = document.getElementById('main-nav');
+  const menuButton = document.getElementById('mobile-menu');
+  const state = { galleries: [], projects: [], messages: [], references: [], settings: {}, visited: [] };
+  const h = (value = '') => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+  const asText = value => String(value ?? '');
+  const safe = url => (typeof api.safeUrl === 'function' ? api.safeUrl(url) : '');
+  const roomUrl = id => '#sala/' + encodeURIComponent(id);
+
+  try {
+    const previous = JSON.parse(localStorage.getItem('museu-visitadas') || '[]');
+    if (Array.isArray(previous)) state.visited = previous;
+  } catch (_) { /* A navegação não depende do localStorage. */ }
+
+  function renderError(error) {
+    console.error('[Museu] Erro de inicialização:', error);
+    const message = error && error.message ? error.message : asText(error);
+    view.innerHTML = `<section class="plain-page wrap"><div class="section-eyebrow">Aviso técnico</div>
+      <h1 class="display">O museu não pôde ser iniciado.</h1>
+      <p>Confira se <code>js/dados.js</code> está presente e se os arquivos foram enviados para as pastas corretas.</p>
+      <p class="muted"><strong>Detalhe:</strong> <code>${h(message)}</code></p>
+      <p><a class="button" href="./diagnostico.html">Abrir diagnóstico ↗</a></p></section>`;
+  }
+
+  function readData() {
+    let data = window.MUSEU_DADOS;
+    if (new URLSearchParams(location.search).has('rascunho')) {
+      try {
+        const draft = localStorage.getItem('museu-editor-rascunho-v2');
+        if (draft) data = JSON.parse(draft);
+      } catch (err) { console.warn('Rascunho inválido, usando arquivo publicado.', err); }
+    }
+    if (!data || typeof data !== 'object' || !Array.isArray(data.galleries)) {
+      throw new Error('MUSEU_DADOS não encontrado ou sem a lista galleries. Verifique js/dados.js.');
+    }
+    state.galleries = data.galleries.filter(g => g && g.published !== false && !g.archived)
+      .map((g,i) => ({...g, id: asText(g.id || `sala-${i+1}`), name: asText(g.name || 'Sala sem nome'),
+        order: Number(g.order) || i + 1, x: Number(g.x) || 80, y: Number(g.y) || 80,
+        w: Number(g.w) || 225, h: Number(g.h) || 185, panels: Array.isArray(g.panels) ? g.panels : [],
+        color: /^#[0-9a-f]{6}$/i.test(g.color || '') ? g.color : '#a6533c',
+        refs: Array.isArray(g.refs) ? g.refs.filter(u => safe(u)) : [] }))
+      .sort((a,b) => a.order - b.order);
+    state.projects = Array.isArray(data.projects) ? data.projects.filter(p => p && p.published === true) : [];
+    state.messages = Array.isArray(data.messages) ? data.messages.filter(m => m && m.status === 'approved') : [];
+    state.references = Array.isArray(data.references) ? data.references : [];
+    state.settings = data.settings || {};
+  }
+
+  function home() {
+    const gs = state.galleries;
+    return `<section class="intro wrap" id="inicio"><div>
+      <div class="section-eyebrow">Museu Virtual de Memória, Literatura e Educação Antirracista</div>
+      <h1 class="display">Vozes que<br><em>não se</em> calam<span style="color:var(--ochre)">.</span></h1>
+      </div><div class="intro-aside"><p>Conheça histórias, memórias e formas de resistência. Escolha uma sala diretamente na planta do museu.</p>
+      <a class="button" href="#explorar" id="start-visit">Entrar no museu ↗</a>
+      <div class="intro-counter"><strong>${String(gs.length).padStart(2,'0')}</strong><span>Salas abertas<br>à visitação</span></div></div></section>
+      <section class="museum-section" id="explorar"><div class="wrap">
+        <div class="map-heading"><div><div class="section-eyebrow eyebrow-light">Mapa interativo</div>
+        <h2>Escolha uma sala<br><em>na planta.</em></h2></div><p>Clique em um ambiente para entrar, observar os quadros e abrir as exposições.</p></div>
+        <div class="map-layout"><div class="map-card"><div class="map-toolbar"><span>PLANTA BAIXA · MUSEU VIRTUAL</span>
+        <div class="map-tools"><span>ZOOM</span><button type="button" id="map-zoom-out" aria-label="Diminuir planta">−</button>
+        <button type="button" id="map-zoom-in" aria-label="Ampliar planta">+</button>
+        <button type="button" id="map-reset" aria-label="Restaurar planta">⟳</button></div></div>
+        <div class="map-viewport" id="map-viewport"><div id="museum-map"></div></div>
+        <div class="map-caption"><span>Selecione uma sala no mapa</span><span>Entrada principal na parte inferior</span></div></div>
+        <aside class="map-sidebar"><div class="room-links" aria-label="Alternativa acessível à planta">
+        ${gs.map(g => `<button type="button" class="room-link" data-room-id="${h(g.id)}"><span class="room-link-num">${String(g.order).padStart(2,'0')}</span><span><b>${h(g.name)}</b><small>${h(g.theme || '')}</small></span></button>`).join('')}
+        </div><div class="map-hint"><span>⌖</span><p>A lista é uma alternativa à planta para navegação por teclado e celular.</p></div>
+        <span class="progress-label">${state.visited.filter(id => gs.some(g => g.id === id)).length} de ${gs.length} salas visitadas</span></aside></div>
+      </div></section>`;
+  }
+
+  function bindHome() {
+    const holder = document.getElementById('museum-map');
+    if (!holder || typeof api.renderMap !== 'function') throw new Error('js/mapa.js não foi carregado.');
+    const svg = api.renderMap(holder, state.galleries, id => { location.hash = roomUrl(id); }, state.visited);
+    document.querySelectorAll('.room-link').forEach(button => button.addEventListener('click', () => {
+      location.hash = roomUrl(button.dataset.roomId);
+    }));
+    let zoom = 1;
+    const viewport = document.getElementById('map-viewport');
+    const adjust = delta => {
+      zoom = Math.min(2.6, Math.max(1, zoom + delta));
+      svg.style.width = (100 * zoom) + '%';
+      viewport.style.overflow = zoom > 1 ? 'auto' : 'hidden';
+    };
+    document.getElementById('map-zoom-in').onclick = () => adjust(0.25);
+    document.getElementById('map-zoom-out').onclick = () => adjust(-0.25);
+    document.getElementById('map-reset').onclick = () => { zoom = 1; svg.style.width = '100%'; viewport.style.overflow = 'hidden'; };
+  }
+
+  function about() {
+    const s = state.settings.institution || {};
+    return `<article class="plain-page wrap"><div class="section-eyebrow">Sobre o projeto</div>
+      <h1 class="display">Um museu de<br><em>memórias.</em></h1><div class="reading">
+      <p class="lead">A memória preserva histórias. A educação transforma futuros.</p>
+      <p>O museu <strong>Vozes que Não se Calam</strong> tem como referência a obra <em>Quarto de Despejo</em>, de Carolina Maria de Jesus. Seus ambientes relacionam literatura, história, educação antirracista e produções da comunidade escolar.</p>
+      <p>Para explorar, <a href="#explorar">abra a planta</a> e selecione uma sala. Dentro dela, clique nos quadros para conhecer os textos e os projetos expostos.</p>
+      ${s.school ? `<h2 class="subheading">Escola</h2><p>${h(s.school)}</p>` : ''}
+      ${s.team ? `<h2 class="subheading">Equipe responsável</h2><p>${h(s.team)}</p>` : ''}
+      <p><a href="#explorar" class="button">Visitar a planta ↗</a></p></div></article>`;
+  }
+
+  function credits() {
+    const s = state.settings.institution || {};
+    const refs = state.references.map(r => {
+      const u = safe(r.url);
+      return `<li>${u ? `<a href="${h(u)}" rel="noopener noreferrer" target="_blank">${h(r.name)} ↗</a>` : h(r.name)}</li>`;
+    }).join('');
+    return `<article class="plain-page wrap"><div class="section-eyebrow">Créditos e fontes</div>
+      <h1 class="display">Créditos &<br><em>referências.</em></h1>
+      <div class="reading"><p class="lead">Textos e exposições podem ser atualizados pela equipe responsável.</p>
+      <h2 class="subheading">Referências</h2><ul class="reference-list">${refs}</ul>
+      <h2 class="subheading">Autoria</h2><p>${h(s.credits || 'Projeto educativo da comunidade escolar.')}</p>
+      ${s.school ? `<p><b>Instituição:</b> ${h(s.school)}</p>` : ''}
+      ${s.team ? `<p><b>Equipe:</b> ${h(s.team)}</p>` : ''}
+      <p>As representações gráficas abstratas são ilustrações, não documentos históricos.</p></div></article>`;
+  }
+
+  function projectScreen(p) {
+    const images = (Array.isArray(p.images) ? p.images : []).filter(u => safe(u));
+    const links = (Array.isArray(p.links) ? p.links : []).filter(u => safe(u));
+    return `<article class="plain-page wrap"><a class="backline" href="#sala/projetos">← Voltar à exposição da escola</a>
+      <div class="section-eyebrow">${h(p.category || 'Projeto escolar')}</div>
+      <h1 class="display">${h(p.title)}</h1><div class="reading"><p class="lead">${h(p.description)}</p>
+      ${p.teacher ? `<p><b>Professor(a):</b> ${h(p.teacher)}</p>` : ''}
+      ${p.subject ? `<p><b>Disciplina:</b> ${h(p.subject)}</p>` : ''}
+      ${p.class ? `<p><b>Turma:</b> ${h(p.class)}</p>` : ''}
+      ${p.objectives ? `<h2 class="subheading">Objetivos</h2><p>${h(p.objectives)}</p>` : ''}
+      ${images.length ? `<h2 class="subheading">Imagens</h2><div class="project-media">${images.map(u => `<a href="${h(u)}" target="_blank" rel="noopener noreferrer"><img src="${h(u)}" alt="Registro do projeto ${h(p.title)}" loading="lazy"></a>`).join('')}</div>` : ''}
+      ${p.results ? `<h2 class="subheading">Resultados</h2><p>${h(p.results)}</p>` : ''}
+      ${links.length ? `<h2 class="subheading">Recursos</h2><ul>${links.map(u => `<li><a href="${h(u)}" target="_blank" rel="noopener noreferrer">Abrir documento ↗</a></li>`).join('')}</ul>` : ''}
+      ${p.credits ? `<p><b>Créditos:</b> ${h(p.credits)}</p>` : ''}</div></article>`;
+  }
+
+  function notFound() {
+    return `<section class="plain-page wrap"><div class="section-eyebrow">Sala não encontrada</div>
+    <h1 class="display">Esta porta não<br><em>está aberta.</em></h1>
+    <p>Volte à planta para escolher um dos ambientes disponíveis.</p>
+    <a class="button" href="#explorar">Abrir a planta ↗</a></section>`;
+  }
+
+  function markVisited(id) {
+    if (state.visited.includes(id)) return;
+    state.visited.push(id);
+    try { localStorage.setItem('museu-visitadas', JSON.stringify(state.visited)); } catch (_) {}
+  }
+
+  function route() {
+    try {
+      const hash = decodeURIComponent(location.hash.slice(1) || 'inicio');
+      const [part, id] = hash.split('/');
+      if (['inicio','explorar','galerias','acervo'].includes(hash)) {
+        view.innerHTML = home();
+        bindHome();
+        if (hash === 'explorar' || hash === 'galerias' || hash === 'acervo') {
+          document.getElementById('explorar')?.scrollIntoView({behavior:'instant',block:'start'});
+        } else { window.scrollTo(0,0); }
+      } else if (part === 'sala' || part === 'galeria') {
+        const g = state.galleries.find(entry => entry.id === id);
+        if (!g) view.innerHTML = notFound();
+        else {
+          if (typeof api.renderGallery !== 'function') throw new Error('js/galerias.js não foi carregado.');
+          markVisited(g.id);
+          view.innerHTML = api.renderGallery(g, state.galleries, state.projects, state.messages);
+          if (typeof api.bindDialog === 'function') api.bindDialog(g);
+          if (typeof api.bindGalleryExtras === 'function') api.bindGalleryExtras(g);
+          // Os links existentes no arquivo de exposições apontam para #galeria/.
+          // São preservados para compatibilidade com páginas já compartilhadas.
+        }
+        window.scrollTo(0,0);
+      } else if (part === 'projeto') {
+        const p = state.projects.find(entry => entry.id === id);
+        view.innerHTML = p ? projectScreen(p) : notFound();
+        window.scrollTo(0,0);
+      } else if (hash === 'sobre') {
+        view.innerHTML = about(); window.scrollTo(0,0);
+      } else if (hash === 'creditos') {
+        view.innerHTML = credits(); window.scrollTo(0,0);
+      } else { view.innerHTML = notFound(); window.scrollTo(0,0); }
+      document.querySelectorAll('.main-nav a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + hash);
+      });
+      menu?.classList.remove('open');
+      menuButton?.setAttribute('aria-expanded', 'false');
+    } catch (error) { renderError(error); }
+  }
+
+  if (menuButton && menu) {
+    menuButton.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  try {
+    if (!api.renderMap || !api.renderGallery || !api.bindDialog) {
+      throw new Error('Os scripts auxiliares do museu não foram carregados. Verifique a pasta js/.');
+    }
+    readData();
+    route();
+    window.addEventListener('hashchange', route);
+    if (new URLSearchParams(location.search).has('rascunho')) {
+      const notice = document.createElement('div');
+      notice.className = 'preview-notice';
+      notice.textContent = 'PRÉVIA LOCAL · alterações não publicadas no GitHub';
+      document.body.appendChild(notice);
+    }
+  } catch (error) { renderError(error); }
 })();
