@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#30251f">
+  <meta name="description" content="Vozes que Não se Calam — Museu Virtual de Memória, Literatura e Educação Antirracista. Explore exposições sobre Carolina Maria de Jesus, Quarto de Despejo e a comunidade escolar.">
+  <title>Vozes que Não se Calam — Museu Virtual</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+  <script defer src="./js/dados.js"></script>
+  <script defer src="./js/utils.js"></script>
+  <script defer src="./js/acervo.js"></script>
+  <script defer src="./js/mapa.js"></script>
+  <script defer src="./js/galerias.js"></script>
+  <script defer src="./js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <div class="top-rule"></div>
+  <header class="site-header" id="topo">
+    <a class="brand" href="#inicio" aria-label="Vozes que Não se Calam — início">
+      <span class="brand-symbol" aria-hidden="true">V<span>.</span></span>
+      <span class="brand-name"><b>VOZES QUE</b><b>NÃO SE CALAM</b><small>MUSEU VIRTUAL · MEMÓRIA E LITERATURA</small></span>
+    </a>
+    <button class="mobile-menu" id="mobile-menu" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+      <a href="#inicio" data-nav="inicio">Início</a>
+      <a href="#explorar" data-nav="explorar">Explorar museu</a>
+      <a href="#sobre" data-nav="sobre">Sobre o projeto</a>
+      <a href="#acervo" data-nav="acervo">Acervo</a>
+      <a href="#creditos" data-nav="creditos">Créditos</a>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1">
+    <div id="view" aria-live="polite"></div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><span class="footer-monogram">V.</span><p>Um espaço para preservar memórias,<br>ampliar vozes e transformar olhares.</p></div>
+      <div><b>O museu</b><a href="#explorar">Explorar a planta</a><a href="#galerias">Todas as galerias</a><a href="#sobre">Sobre o projeto</a></div>
+      <div><b>Pesquisa</b><a href="#acervo">Acervo e referências</a><a href="#creditos">Créditos e autoria</a><a href="./editor.html">Editor de conteúdo</a></div>
+      <div class="footer-end"><span>VOZES QUE NÃO SE CALAM</span><small>Projeto educativo · © 2026</small><small>Carolina Maria de Jesus e seu legado</small></div>
+    </div>
+    <div class="footer-note">As imagens interpretativas são identificadas como ilustrações. O conteúdo educativo é de autoria curatorial do projeto; nenhuma passagem extensa da obra foi reproduzida.</div>
+  </footer>
+  <dialog id="exhibit-dialog" aria-label="Detalhes da peça em exposição">
+    <button class="dialog-close" id="dialog-close" aria-label="Fechar detalhes">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

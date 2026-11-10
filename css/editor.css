@@ -1,0 +1,31 @@
+/* Complementos do editor local: nenhuma dependência externa. */
+.admin-sidebar nav{gap:8px}.admin-sidebar .tab-link{font-size:13px}
+.editor-top-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;margin-bottom:26px}
+.editor-columns{display:grid;grid-template-columns:minmax(220px, .9fr) minmax(0,1.5fr);gap:18px;align-items:start}
+.editor-columns .panel{min-width:0}
+.editor-inline-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.editor-inline-actions>*{min-width:0}
+.editor-record-btn{border:0;background:transparent;text-align:left;color:inherit;cursor:pointer;padding:3px}
+.editor-record-btn:hover{text-decoration:underline}
+.editor-fieldset{border:1px solid #d5c6b2;background:#f4ebdd;padding:16px;margin:14px 0}
+.editor-fieldset legend{font:normal 19px Georgia,serif;padding:0 8px}
+.editor-fieldset textarea{min-height:140px}
+.editor-fieldset .field{margin-bottom:10px}
+.editor-fieldset .field:last-child{margin-bottom:0}
+.editor-breadcrumb{color:#82634b;font-size:12px;margin-bottom:20px}
+.editor-breadcrumb button{border:0;background:none;padding:0;color:inherit;text-decoration:underline}
+.editor-preview{font:15px/1.5 Georgia,serif;white-space:pre-wrap;background:#f1e4d0;padding:15px}
+.editor-actions-sticky{position:sticky;bottom:0;background:#fffaf1;padding:12px 0;border-top:1px solid #d5c6b2;display:flex;flex-wrap:wrap;gap:8px;z-index:1}
+.editor-small{font-size:12px;color:#756453}
+.editor-instructions{list-style:decimal;padding-left:23px;line-height:1.8}
+.floor-editor svg .floor-room{cursor:grab;touch-action:none}
+.floor-editor svg .floor-room rect{stroke:#5c4a3d;stroke-width:7;transition:stroke .15s}
+.floor-editor svg .floor-room.is-selected rect{stroke:#a6533c;stroke-width:12}
+.floor-editor svg .floor-room:focus-visible rect{stroke:#b90000;stroke-width:12}
+.floor-editor svg text{font:12px Arial,sans-serif;pointer-events:none}
+.floor-editor svg{user-select:none}
+.notice strong{color:#3c291c}
+@media(max-width:1000px){.editor-columns{grid-template-columns:1fr}}
+@media(max-width:700px){.editor-top-actions{justify-content:flex-start}.admin-sidebar .tab-link span{display:inline;font-size:11px;white-space:nowrap}.admin-sidebar{align-items:stretch}.admin-sidebar nav{min-width:max-content}.admin-brand{display:none}.admin-top .admin-status{display:none}.editor-actions-sticky{position:static}}
+
+@media(min-width:701px) and (max-width:1050px){.admin-sidebar{width:187px}.admin-main-container{margin-left:187px}.admin-sidebar .tab-link span{display:inline;font-size:12px}.admin-sidebar nav{overflow-y:auto}.admin-brand small{display:inline}}

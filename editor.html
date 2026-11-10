@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#30251f">
+  <title>Editor local — Vozes que Não se Calam</title>
+  <link rel="stylesheet" href="./css/admin.css">
+  <link rel="stylesheet" href="./css/editor.css">
+  <script defer src="./js/dados.js"></script>
+  <script defer src="./js/editor.js"></script>
+</head>
+<body>
+  <a href="#admin-main" class="skip">Pular para o conteúdo</a>
+  <aside class="admin-sidebar">
+    <a class="admin-brand" href="./index.html">V<span>.</span><small>EDITOR LOCAL<br>DO MUSEU</small></a>
+    <p class="aside-label">CURADORIA</p>
+    <nav aria-label="Editor de conteúdo">
+      <button type="button" class="tab-link active" data-tab="dashboard"><span>Visão geral</span></button>
+      <button type="button" class="tab-link" data-tab="galleries"><span>Galerias e quadros</span></button>
+      <button type="button" class="tab-link" data-tab="floor"><span>Planta do museu</span></button>
+      <button type="button" class="tab-link" data-tab="projects"><span>Projetos escolares</span></button>
+      <button type="button" class="tab-link" data-tab="mural"><span>Mural curatorial</span></button>
+      <button type="button" class="tab-link" data-tab="institution"><span>Instituição e fontes</span></button>
+    </nav>
+    <div class="sidebar-bottom"><a href="./index.html" target="_blank" rel="noopener">↗ Ver museu público</a><span class="small-muted">Não há login: as alterações são locais até você publicar no GitHub.</span></div>
+  </aside>
+  <div class="admin-main-container">
+    <header class="admin-top">
+      <div><small class="eyebrow">HTML · CSS · JAVASCRIPT PUROS</small><strong id="admin-title">Editor de conteúdo</strong></div>
+      <span class="admin-status">● Rascunho salvo neste navegador</span>
+    </header>
+    <main id="admin-main">
+      <div class="editor-top-actions">
+        <button class="secondary" type="button" data-action="preview">Prévia do rascunho ↗</button>
+        <button class="primary" type="button" data-action="export">Baixar dados.js para publicar ↓</button>
+      </div>
+      <div id="admin-content" aria-live="polite"></div>
+    </main>
+  </div>
+  <input type="file" accept=".js,.json,application/json,text/javascript" id="import-file" hidden>
+  <div id="admin-toast" role="status" aria-live="polite"></div>
+</body>
+</html>
