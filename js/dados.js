@@ -1,6 +1,5 @@
-// Museu Vozes que Não se Calam — conteúdo público editável em HTML/CSS/JS.
-// Fonte histórica e créditos de imagens nos campos source e caption.
-// Para publicar, substitua js/dados.js no GitHub Pages.
+// Museu Vozes que Não se Calam — acervo mesclado para GitHub Pages.
+// Quatro salas restauradas de dados (1).js; outras quatro mantidas de dados.js.
 window.MUSEU_DADOS = {
   "version": 2,
   "galleries": [
@@ -12,74 +11,47 @@ window.MUSEU_DADOS = {
       "theme": "Vida e obra",
       "tag": "1914 — 1977",
       "letter": "A",
-      "subtitle": "A escrita que atravessa o tempo",
+      "subtitle": "subtitulo",
       "color": "#a6533c",
       "x": 80,
-      "y": 80,
-      "w": 225,
+      "y": 95,
+      "w": 215,
       "h": 185,
-      "description": "Carolina Maria de Jesus nasceu em 14 de março de 1914, em Sacramento, Minas Gerais. Foi escritora, compositora e uma das vozes mais importantes da literatura brasileira do século XX. Vivendo durante parte de sua trajetória na favela do Canindé, em São Paulo, Carolina sustentava seus filhos trabalhando na coleta de materiais reaproveitáveis. Mesmo enfrentando dificuldades econômicas, escrevia sobre seu cotidiano, suas observações e suas reflexões sobre a sociedade. Seus diários deram origem a Quarto de Despejo, publicado em 1960, obra que alcançou repercussão internacional. Carolina demonstrou que a produção literária não pertence exclusivamente às elites e que experiências frequentemente ignoradas pela sociedade também constituem conhecimento, memória e arte.",
-      "question": "Por que é importante que a história de um país também seja contada pelas pessoas que foram historicamente excluídas dos espaços de poder?",
+      "description": "Carolina Maria de Jesus foi uma das escritoras mais importantes da literatura brasileira. Nascida em Sacramento, Minas Gerais, em 1914, teve uma infância simples e enfrentou dificuldades desde cedo. Seu contato com os livros despertou o interesse pela leitura e pela escrita, que se tornaram partes fundamentais de sua vida.\n\nEm busca de melhores condições, Carolina mudou-se para São Paulo em 1947. Na cidade, enfrentou uma realidade difícil, trabalhando como catadora de papel para sustentar seus filhos. Mesmo com uma rotina cansativa e poucas oportunidades, nunca abandonou o hábito de escrever. Seus registros revelavam seus pensamentos, observações e experiências, demonstrando seu talento e sua capacidade de enxergar a sociedade de maneira crítica.\n\nCom o passar dos anos, sua escrita começou a ganhar reconhecimento. Em 1960, sua carreira teve um grande marco com a publicação de Quarto de Despejo. A obra alcançou grande repercussão e fez com que sua história ultrapassasse as fronteiras brasileiras. No ano seguinte, publicou Casa de Alvenaria e também lançou um disco com suas composições musicais, demonstrando que sua expressão artística ia além dos livros.\n\nApesar do reconhecimento, Carolina também enfrentou dificuldades para manter seu espaço no meio literário. Sua trajetória foi marcada por momentos de sucesso, preconceito e esquecimento, mas sua contribuição cultural permaneceu importante para a história do Brasil.\n\nCarolina faleceu em 1977, mas deixou um legado que continua sendo estudado e valorizado. Conhecer sua vida é compreender a trajetória de uma mulher que, mesmo diante de tantas limitações, construiu seu próprio caminho e conquistou um lugar na literatura brasileira. Sua história representa determinação, talento e a importância de reconhecer pessoas que transformaram suas experiências em cultura e conhecimento.",
+      "question": "",
       "panels": [
         {
-          "id": "carolina-1",
-          "title": "Infância e origens",
-          "text": "Carolina nasceu em Sacramento, Minas Gerais, em 1914. Sua infância e juventude ocorreram em um Brasil ainda marcado pelas consequências da escravidão e por profundas barreiras de acesso à educação. A leitura e a escrita assumiriam lugar central em sua vida.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6j5az-d2yq",
+          "title": "As origens de Carolina",
+          "text": "Carolina Maria de Jesus nasceu em 14 de março de 1914, na cidade de Sacramento, em Minas Gerais. Sua infância foi marcada por dificuldades, mas também pelo contato com a leitura e a escrita. Conhecer suas origens é importante para compreender como sua trajetória foi construída e como, apesar das poucas oportunidades, ela desenvolveu uma forte ligação com a literatura.",
+          "kind": "Quadro",
+          "image": "assets/carolina-maria-1.jpeg",
+          "caption": "Carolina Maria de Jesus olhando para a câmera",
+          "source": ""
         },
         {
-          "id": "carolina-2",
-          "title": "A vida em São Paulo",
-          "text": "Na capital paulista, Carolina morou na favela do Canindé e sustentou os filhos por meio da coleta de materiais reaproveitáveis. Mesmo diante de longas jornadas de trabalho, registrava acontecimentos, reflexões e observações em cadernos.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6jemv-5cdm",
+          "title": "A chegada a São Paulo",
+          "text": "Em 1947, Carolina chegou à cidade de São Paulo em busca de melhores condições de vida. Posteriormente, passou a morar na favela do Canindé e trabalhou como catadora de papel para sustentar seus filhos. Esse período marcou profundamente sua história, pois foi nesse contexto que ela continuou desenvolvendo sua escrita e registrando suas experiências.",
+          "kind": "Quadro",
+          "image": "assets/carolina-maria-2.jpeg",
+          "caption": "Carolina Maria de Jesus no Canindé",
+          "source": ""
         },
         {
-          "id": "carolina-3",
-          "title": "A escrita cotidiana",
-          "text": "Seus cadernos são mais do que um arquivo de acontecimentos: apresentam escolhas de linguagem, humor, críticas e uma perspectiva autoral singular. Ao escrever, Carolina registrou a própria experiência e analisou a sociedade que a cercava.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "carolina-4",
-          "title": "A publicação em 1960",
-          "text": "Quarto de Despejo foi publicado em 1960 e teve grande repercussão no Brasil e em outros países. O reconhecimento ampliou o alcance de sua voz, sem eliminar as desigualdades enfrentadas pela autora.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "carolina-5",
-          "title": "Muito além de um livro",
-          "text": "Carolina também escreveu poemas, romances, provérbios e compôs canções. Entre suas obras estão Casa de Alvenaria e Diário de Bitita. Conhecer essa produção ajuda a enxergá-la como artista de múltiplas linguagens.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "carolina-6",
-          "title": "Legado e memória",
-          "text": "Carolina faleceu em 1977. Hoje, sua obra continua inspirando estudos, debates, exposições e novas gerações de escritores. Seu legado pede uma leitura que reconheça a autonomia e a complexidade de sua criação.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6jm7r-xmsl",
+          "title": "O reconhecimento de uma escritora",
+          "text": "Em 1960, Carolina conquistou reconhecimento nacional com a publicação de sua primeira grande obra. Seu sucesso representou uma conquista importante para uma mulher negra e de origem humilde, que conseguiu alcançar milhares de leitores. Sua trajetória mostrou que a literatura também pode abrir caminhos para pessoas que enfrentam preconceitos e falta de oportunidades.",
+          "kind": "Quadro",
+          "image": "assets/carolina-maria-3.jpeg",
+          "caption": "Carolina assinando livros",
+          "source": ""
         }
       ],
       "published": true,
       "archived": false,
       "refs": [
-        "https://ims.com.br/titular-colecao/carolina-maria-de-jesus/"
+        "https://politicacarolinamariadejesus.unifesp.br/sobre/quem-foi-carolina-de-jesus"
       ]
     },
     {
@@ -343,146 +315,92 @@ window.MUSEU_DADOS = {
       "y": 345,
       "w": 225,
       "h": 185,
-      "description": "A literatura pode registrar experiências, questionar injustiças e transformar a maneira como uma sociedade compreende sua própria história. Carolina Maria de Jesus utilizou a escrita para expressar sua visão de mundo, denunciar desigualdades e registrar experiências que raramente recebiam atenção nos espaços literários tradicionais. Sua produção mostra que pessoas negras não são apenas personagens das narrativas históricas: são também autoras, intelectuais, artistas e produtoras de conhecimento. Conhecer escritoras e escritores negros amplia as perspectivas sobre a cultura brasileira e contribui para valorizar diferentes experiências e formas de expressão.",
-      "question": "Como uma obra literária pode modificar a maneira como enxergamos outras pessoas e a sociedade?",
+      "description": "A literatura é muito mais do que escrever histórias: ela também pode ser uma forma de luta, denúncia e resistência. Por meio das palavras, escritores conseguem mostrar realidades que muitas vezes são ignoradas pela sociedade, dando voz a pessoas que não costumam ser ouvidas. Um grande exemplo disso é Carolina Maria de Jesus, escritora negra que enfrentou a pobreza, o preconceito e a exclusão social durante grande parte de sua vida.  Em 1960, Carolina publicou Quarto de Despejo: Diário de uma Favelada, obra baseada em seus próprios registros sobre a vida na favela do Canindé, em São Paulo. No livro, ela relata as dificuldades enfrentadas diariamente, como a fome, a falta de dinheiro, a desigualdade e o abandono das pessoas mais pobres. Sua escrita revela uma realidade que muitos preferiam não enxergar, mostrando que a literatura também pode ser um instrumento de denúncia social.\n\nMesmo com poucas oportunidades de estudo e enfrentando diversas dificuldades, Carolina nunca deixou de escrever. Ela utilizava cadernos encontrados enquanto trabalhava como catadora de papel para registrar seus pensamentos e acontecimentos do cotidiano. Sua trajetória representa a resistência de uma mulher negra e pobre que encontrou na escrita uma maneira de expressar sua realidade e conquistar espaço em uma sociedade marcada pelo preconceito.\nA importância de Carolina Maria de Jesus vai muito além de sua história pessoal. Suas obras mostram que a literatura não pertence apenas às pessoas com dinheiro, estudo ou reconhecimento. Qualquer pessoa tem uma história que merece ser contada, e a escrita pode ser uma maneira de questionar injustiças, preservar memórias e transformar a forma como enxergamos o mundo.\n\nPor isso, falar sobre literatura e resistência é reconhecer o poder das palavras na luta contra o racismo, a pobreza, a desigualdade e o preconceito. Carolina deixou um legado que continua importante até hoje, provando que escrever também é resistir e que dar voz aos esquecidos é uma forma de lutar por uma sociedade mais justa.\n-",
+      "question": "",
       "panels": [
         {
-          "id": "literatura-1",
-          "title": "A palavra como registro",
-          "text": "A escrita preserva lembranças e interpretações do mundo. Carolina registrou seu cotidiano, mas também questionou escolhas políticas, normas sociais e a maneira como certas pessoas eram tratadas.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6tien-3qha",
+          "title": "A escrita como forma de resistência",
+          "text": "A imagem mostra Carolina Maria de Jesus autografando seu livro Quarto de Despejo, em 1960. Sua obra representa a luta de uma mulher negra, pobre e periférica que encontrou na escrita uma maneira de mostrar ao mundo a realidade que muitas pessoas preferiam ignorar. Por meio de suas palavras, Carolina transformou suas dificuldades em uma forma de denúncia e resistência.",
+          "kind": "Quadro",
+          "image": "assets/literatura-resistencia-1.jpeg",
+          "caption": "Foto da Carolina Maria de Jesus",
+          "source": ""
         },
         {
-          "id": "literatura-2",
-          "title": "Autoria negra",
-          "text": "Reconhecer pessoas negras como autoras significa estudar suas escolhas estéticas, ideias e obras, não somente as dificuldades que viveram. A autoria de Carolina merece atenção literária e histórica.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6tp40-sdsq",
+          "title": "Uma história que precisava ser contada",
+          "text": "Carolina transformou suas experiências e dificuldades em palavras, registrando o cotidiano da favela do Canindé. Por meio de seus escritos, denunciou a fome, a pobreza e a desigualdade social, dando voz a pessoas que eram esquecidas pela sociedade. Sua obra mostrou que a literatura também pode ser uma forma de resistência e de luta por reconhecimento.",
+          "kind": "Quadro",
+          "image": "assets/literatura-resistencia-2.jpeg",
+          "caption": "Carolina Maria de Jesus no Canindé",
+          "source": ""
         },
         {
-          "id": "literatura-3",
-          "title": "Literatura afro-brasileira",
-          "text": "A produção literária afro-brasileira reúne muitos estilos, períodos e perspectivas. Não há uma única voz ou experiência; conhecer essa diversidade ajuda a evitar generalizações.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "literatura-4",
-          "title": "Memória e identidade",
-          "text": "Livros podem criar vínculos entre histórias individuais e memórias coletivas. Ao narrar sua própria perspectiva, a autora permite que leitores confrontem visões incompletas da sociedade.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "literatura-5",
-          "title": "Representação importa",
-          "text": "Quando diferentes pessoas ocupam espaços de criação e reconhecimento, o repertório cultural de todos se amplia. Representatividade também envolve oportunidades reais de publicar, circular e ser estudado.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "literatura-6",
-          "title": "Outras vozes",
-          "text": "Maria Firmina dos Reis, Machado de Assis, Lima Barreto e Conceição Evaristo são autores de épocas e estilos distintos. A presença deles nesta sala é um convite para aprofundar leituras, sem transformar suas obras em uma lista homogênea.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6tvep-seec",
+          "title": "Uma voz que ultrapassou fronteiras",
+          "text": "A imagem representa o reconhecimento de Carolina Maria de Jesus após a publicação de Quarto de Despejo, em 1960. Seu livro alcançou grande sucesso e levou sua história para diferentes países. Mesmo enfrentando preconceitos por ser mulher, negra e pobre, Carolina conquistou seu espaço na literatura brasileira. Sua trajetória demonstra que a escrita pode romper barreiras, combater o silêncio e dar voz a pessoas que historicamente foram esquecidas.",
+          "kind": "Quadro",
+          "image": "assets/literatura-resistencia-3.jpeg",
+          "caption": "Carolina Maria de Jesus assinando livros",
+          "source": ""
         }
       ],
       "published": true,
       "archived": false,
       "refs": [
-        "https://ims.com.br/titular-colecao/carolina-maria-de-jesus/"
+        "Https://ims.com.br/2022/02/01/carolina-maria-de-jesus-um-brasil-para-os-brasileiros-textos-da-exposicao"
       ]
     },
     {
       "id": "educacao",
       "order": 6,
       "name": "Educação Antirracista",
-      "title": "Conhecimento para transformar.",
+      "title": "a importância do respeito e da valorização da cultura negra",
       "theme": "Educação",
       "tag": "Agir",
       "letter": "F",
       "subtitle": "Da leitura para a sala de aula",
       "color": "#716a4d",
-      "x": 650,
-      "y": 345,
-      "w": 225,
+      "x": 645,
+      "y": 340,
+      "w": 215,
       "h": 185,
-      "description": "A educação antirracista busca identificar, questionar e combater práticas discriminatórias, além de valorizar a história, a cultura e as contribuições da população negra para a sociedade. No Brasil, a Lei nº 10.639/2003 estabeleceu a obrigatoriedade do ensino de História e Cultura Afro-Brasileira na educação básica. Posteriormente, a Lei nº 11.645/2008 ampliou a previsão para incluir também a história e a cultura indígena. Uma educação comprometida com a igualdade precisa ir além de datas comemorativas. Ela deve promover o respeito às diferenças, a reflexão crítica e o reconhecimento das contribuições de diferentes grupos sociais ao longo de todo o processo educativo.",
-      "question": "O que uma escola precisa fazer para que o respeito à diversidade esteja presente nas atitudes cotidianas e não apenas nos discursos?",
+      "description": "A educação antirracista é fundamental para construir uma sociedade mais justa, igualitária e livre de preconceitos. Ela tem como objetivo combater o racismo por meio do conhecimento, do respeito às diferenças e da valorização da história e da cultura africana e afro-brasileira. De acordo com a proposta apresentada pelo projeto Criança Livre de Trabalho Infantil, é importante que a educação contribua para formar cidadãos conscientes e preparados para combater as desigualdades raciais.\n\nA escola possui um papel muito importante na educação antirracista, pois é um espaço onde crianças e adolescentes aprendem a conviver com as diferenças. Por isso, é necessário que os professores trabalhem temas relacionados ao racismo, à diversidade cultural e à história do povo negro, mostrando que todas as pessoas merecem respeito e oportunidades iguais.\n\nUm exemplo importante é Carolina Maria de Jesus, escritora negra brasileira que enfrentou muitas dificuldades durante sua vida, como a pobreza, o preconceito e a desigualdade social. Ela ficou conhecida principalmente por seu livro Quarto de Despejo, no qual relatou sua realidade e as dificuldades de viver na favela. Sua história representa a resistência e a luta de muitas mulheres negras, além de mostrar a importância de dar voz às pessoas que muitas vezes são esquecidas pela sociedade.\n\nConhecer histórias como a de Carolina Maria de Jesus ajuda a valorizar a cultura negra e a reconhecer a contribuição das pessoas negras para a construção da sociedade brasileira. Além disso, combater o racismo não significa apenas evitar atitudes preconceituosas, mas também reconhecer as desigualdades e trabalhar para que todos tenham os mesmos direitos.\n\nPortanto, a educação antirracista deve ser uma responsabilidade de toda a sociedade. É necessário ensinar desde cedo o respeito, combater o preconceito e valorizar a diversidade. A história de Carolina Maria de Jesus mostra como a educação, a literatura e a luta por igualdade podem transformar vidas. Assim, por meio do conhecimento e da conscientização, podemos construir um futuro com mais respeito, oportunidades e igualdade para todos.",
+      "question": "",
       "panels": [
         {
-          "id": "educacao-1",
-          "title": "Educação antirracista",
-          "text": "Uma prática antirracista identifica discriminações, promove relações respeitosas e valoriza conhecimentos muitas vezes excluídos do currículo. Isso exige continuidade, escuta e revisão de hábitos.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6ukiw-snzb",
+          "title": "A Importância de Carolina Maria de Jesus na Educação Antirracista",
+          "text": "A imagem representa Carolina Maria de Jesus sendo reconhecida por sua trajetória e por sua importância na literatura brasileira. Ao observar a fotografia, percebemos uma mulher lendo uma publicação que destaca a história de Carolina, mostrando como sua vida e suas obras ganharam visibilidade na sociedade. Carolina foi uma mulher negra que enfrentou a pobreza, o preconceito e a desigualdade social, mas encontrou na escrita uma forma de expressar sua realidade e dar voz às pessoas que viviam em situações semelhantes.\n\nEssa imagem está relacionada à educação antirracista porque mostra a importância de valorizar a história, a cultura e as conquistas da população negra. Conhecer a trajetória de Carolina Maria de Jesus permite combater o preconceito, reconhecer a capacidade das mulheres negras e mostrar que todas as pessoas merecem oportunidades e reconhecimento. Além disso, reforça a importância de apresentar personalidades negras nas escolas, para que suas histórias sejam conhecidas e respeitadas pelas novas gerações.",
+          "kind": "Quadro",
+          "image": "assets/educacao-antirracista-1.jpeg",
+          "caption": "Carolina Maria de Jesus se vendo em um jornal",
+          "source": ""
         },
         {
-          "id": "educacao-2",
-          "title": "História e cultura",
-          "text": "O ensino da história e da cultura afro-brasileira inclui diferentes expressões artísticas, intelectuais, políticas e sociais. Não se limita ao período da escravidão ou a uma única data do calendário.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6uq1s-y0az",
+          "title": "A Força da Literatura Negra",
+          "text": "A imagem apresenta Carolina Maria de Jesus em um momento dedicado à escrita, segurando uma folha de papel enquanto está cercada por livros. A fotografia representa sua dedicação à literatura e mostra como a escrita se tornou uma ferramenta importante para expressar seus pensamentos, contar suas experiências e denunciar as dificuldades enfrentadas pela população negra e pelas pessoas que viviam em situação de pobreza.\n\nEssa imagem está diretamente relacionada à educação antirracista, pois demonstra a importância de valorizar escritoras negras que, durante muito tempo, tiveram pouco reconhecimento na sociedade. Carolina rompeu barreiras por meio de sua escrita, mostrando que as mulheres negras também possuem voz, conhecimento e capacidade de transformar a realidade por meio da literatura.\n\nAlém disso, a fotografia transmite uma mensagem importante sobre a educação: todos devem ter acesso ao conhecimento, à leitura e às mesmas oportunidades. Conhecer a história de Carolina Maria de Jesus é uma forma de combater o racismo, valorizar a representatividade negra e mostrar às novas gerações que a cor da pele ou a condição social não determinam a capacidade de uma pessoa.",
+          "kind": "Quadro",
+          "image": "assets/educacao-antirracista-2.jpeg",
+          "caption": "Carolina Maria de Jesus assinando livros",
+          "source": ""
         },
         {
-          "id": "educacao-3",
-          "title": "Leis e currículo",
-          "text": "A Lei 10.639/2003 alterou a LDB para tratar da obrigatoriedade de história e cultura afro-brasileira; a Lei 11.645/2008 ampliou essa previsão para incluir a história e a cultura indígena no ensino fundamental e médio.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "educacao-4",
-          "title": "Presença no cotidiano",
-          "text": "Livros, cartazes, exemplos usados nas aulas e critérios de participação também ensinam. A escola precisa perguntar quem está representado, quem é ouvido e quais referências apresenta.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "educacao-5",
-          "title": "Diante da discriminação",
-          "text": "Ao presenciar preconceito ou discriminação, é importante acolher a pessoa atingida, interromper a prática quando seguro, buscar os responsáveis e seguir os procedimentos de proteção da escola.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "educacao-6",
-          "title": "Compromisso coletivo",
-          "text": "Uma comunidade escolar antirracista envolve estudantes, famílias, professores e gestão. A mudança ocorre em projetos e rotinas permanentes, não apenas em campanhas pontuais.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6uupt-r83v",
+          "title": "A Valorização da Cultura Negra na Educação",
+          "text": "Carolina Maria de Jesus foi uma mulher negra que enfrentou muitas dificuldades, mas conquistou reconhecimento por meio da literatura. Sua escrita denunciava o racismo, a pobreza e as desigualdades sociais, dando voz a pessoas que muitas vezes eram ignoradas pela sociedade.\nSua trajetória está relacionada à educação antirracista, pois mostra a importância de valorizar a história das mulheres negras, combater o preconceito e reconhecer a contribuição da população negra para a cultura brasileira.",
+          "kind": "Quadro",
+          "image": "assets/educacao-antirracista-3.jpeg",
+          "caption": "Perfil da Carolina Maria de Jesus",
+          "source": ""
         }
       ],
       "published": true,
       "archived": false,
       "refs": [
-        "https://www2.camara.leg.br/legin/fed/lei/2008/lei-11645-10-marco-2008-572787-publicacaooriginal-96087-pl.html"
+        "https://livredetrabalhoinfantil.org.br"
       ]
     },
     {
@@ -575,76 +493,110 @@ window.MUSEU_DADOS = {
       "letter": "H",
       "subtitle": "A visita continua fora daqui",
       "color": "#69594f",
-      "x": 505,
+      "x": 515,
       "y": 605,
-      "w": 370,
+      "w": 360,
       "h": 170,
-      "description": "Conhecer uma história é apenas o começo. O conhecimento torna-se transformador quando nos ajuda a questionar nossas atitudes e compreender a realidade em que vivemos. A trajetória de Carolina Maria de Jesus nos convida a refletir sobre desigualdade, literatura, dignidade, identidade e direitos humanos. Seu legado permanece importante porque demonstra a força da palavra escrita e a necessidade de escutar vozes historicamente marginalizadas. O desafio de uma educação antirracista é transformar essa reflexão em atitudes concretas de respeito, solidariedade e justiça.",
-      "question": "Que atitude concreta você pode adotar depois desta visita?",
+      "description": "A história de Carolina Maria de Jesus nos deixa importantes ensinamentos sobre respeito, igualdade, reconhecimento e transformação social. Ao conhecer sua trajetória, percebemos que muitas pessoas enfrentam dificuldades não apenas por sua condição financeira, mas também pelo preconceito e pela falta de oportunidades. Carolina foi uma mulher negra que enfrentou diversas barreiras e, mesmo diante delas, conseguiu conquistar espaço na literatura e em outras formas de expressão artística.\n\nSua história nos convida a olhar para a sociedade com mais atenção, questionando as desigualdades e reconhecendo a importância de cada indivíduo. Também nos ensina que ninguém deve ser definido apenas por sua origem, aparência ou condição social, pois todas as pessoas possuem capacidades, sonhos e histórias que merecem ser valorizadas.\n\nA transformação começa quando passamos a compreender realidades diferentes da nossa e desenvolvemos respeito por elas. Por isso, conhecer Carolina não significa apenas aprender sobre o passado, mas também refletir sobre o presente e pensar no futuro que queremos construir.\nSeu legado continua vivo porque suas conquistas representam muito mais do que uma história individual: representam a luta por espaço, reconhecimento e igualdade. Ao encerrar esta exposição, fica a reflexão de que todos merecem ser ouvidos, respeitados e lembrados, e que a educação, a cultura e a arte podem contribuir para transformar a sociedade.",
+      "question": "",
       "panels": [
         {
-          "id": "reflexao-1",
-          "title": "O que você aprendeu?",
-          "text": "Relembre uma informação que tenha mudado sua forma de enxergar uma obra, uma pessoa ou uma questão social. Conhecimento é também rever ideias anteriores.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6wusg-uz5c",
+          "title": "Uma mulher que marcou a história",
+          "text": "O retrato de Carolina representa a força de uma mulher que enfrentou preconceitos e barreiras sociais para conquistar seu espaço. Sua trajetória nos faz refletir sobre quantas pessoas ainda precisam lutar para serem reconhecidas e respeitadas. Sua história mostra que uma pessoa pode transformar a sociedade ao ter coragem de expressar suas ideias e defender sua própria voz.",
+          "kind": "Quadro",
+          "image": "assets/reflexao-transformacao-1.jpeg",
+          "caption": "Foto Perfil da Carolina Maria de Jesus",
+          "source": ""
         },
         {
-          "id": "reflexao-2",
-          "title": "Da leitura à escuta",
-          "text": "Aprender com a voz de Carolina exige ouvir com atenção e evitar falar por ela. É possível confrontar as próprias interpretações com a obra e com outras fontes confiáveis.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6x462-khxp",
+          "title": "O reconhecimento de uma trajetória",
+          "text": "Nesta fotografia, Carolina aparece em um encontro com o presidente João Goulart, em 1961. A imagem representa a importância de reconhecer pessoas que fizeram história, independentemente de sua origem ou condição social. Sua trajetória nos leva a refletir sobre a necessidade de dar visibilidade às vozes que durante muito tempo foram deixadas de lado.",
+          "kind": "Quadro",
+          "image": "assets/reflexao-transformacao-2.jpeg",
+          "caption": "Foto da Carolina Maria de Jesus rindo com outras pessoas",
+          "source": ""
         },
         {
-          "id": "reflexao-3",
-          "title": "O que podemos mudar?",
-          "text": "Atitudes concretas incluem reconhecer discriminações, respeitar identidades, diversificar leituras e agir de forma responsável diante de injustiças.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "reflexao-4",
-          "title": "Responsabilidade coletiva",
-          "text": "Melhorar a convivência é tarefa compartilhada por estudantes, educadores, famílias e comunidade. Pequenas ações importam, mas precisam caminhar com compromissos institucionais.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "reflexao-5",
-          "title": "Continue pesquisando",
-          "text": "Visite o acervo do Instituto Moreira Salles, procure outras obras de Carolina e leia autoras e autores negros de épocas diferentes. O museu é um ponto de partida.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
-        },
-        {
-          "id": "reflexao-6",
-          "title": "A visita não termina aqui",
-          "text": "A memória preserva histórias. A educação transforma futuros. Registre abaixo uma reflexão pessoal; mensagens enviadas ao mural somente aparecem após moderação.",
-          "kind": "painel educativo",
-          "image": "",
-          "caption": "Conteúdo educativo do museu",
-          "source": "Fonte-base: materiais do projeto e referências da exposição."
+          "id": "painel-mwb6x943-a3pm",
+          "title": "Além da literatura",
+          "text": "Carolina também foi cantora e compositora, mostrando que seu talento não se limitava à escrita. Nesta imagem, ela aparece tocando violão, revelando outro lado de sua expressão artística. Isso nos faz refletir sobre a importância de conhecer e valorizar todas as capacidades de uma pessoa, sem limitá-la a uma única atividade ou realidade.",
+          "kind": "Quadro",
+          "image": "assets/reflexao-transformacao-3.jpeg",
+          "caption": "Carolina Maria de Jesus tocando violão enquanto crianças observam",
+          "source": ""
         }
       ],
       "published": true,
       "archived": false,
       "refs": [
-        "https://ims.com.br/titular-colecao/carolina-maria-de-jesus/"
+        "https://carolinamariadejesus.ims.com.br/biografia"
       ]
     }
   ],
-  "projects": [],
+  "projects": [
+    {
+      "id": "projeto-mwb6ky05-w0rj",
+      "title": "Maquete",
+      "category": "Projetos interdisciplinares",
+      "teacher": "Simone",
+      "subject": "text",
+      "class": "1B",
+      "description": "text",
+      "objectives": "text",
+      "results": "text",
+      "credits": "text",
+      "images": [],
+      "links": [],
+      "published": true
+    },
+    {
+      "id": "projeto-mwb6mkv8-8znx",
+      "title": "Casa da Carolina",
+      "category": "Projetos interdisciplinares",
+      "teacher": "text",
+      "subject": "text",
+      "class": "2B",
+      "description": "text",
+      "objectives": "text",
+      "results": "text",
+      "credits": "text",
+      "images": [],
+      "links": [],
+      "published": true
+    },
+    {
+      "id": "projeto-mwb6n961-dyat",
+      "title": "Jogo Educativo",
+      "category": "Projetos interdisciplinares",
+      "teacher": "text",
+      "subject": "text",
+      "class": "2B",
+      "description": "text",
+      "objectives": "text",
+      "results": "text",
+      "credits": "text",
+      "images": [],
+      "links": [],
+      "published": true
+    },
+    {
+      "id": "projeto-mwb6nxuv-ru8p",
+      "title": "Podcast",
+      "category": "Projetos interdisciplinares",
+      "teacher": "text",
+      "subject": "text",
+      "class": "text",
+      "description": "text",
+      "objectives": "text",
+      "results": "text",
+      "credits": "text",
+      "images": [],
+      "links": [],
+      "published": true
+    }
+  ],
   "messages": [],
   "references": [
     {
@@ -670,11 +622,11 @@ window.MUSEU_DADOS = {
   ],
   "settings": {
     "institution": {
-      "school": "",
+      "school": "Escola Rita Angelina Barbosa",
       "subtitle": "Museu Virtual de Memória, Literatura e Educação Antirracista",
       "team": "",
       "credits": "Projeto educativo da comunidade escolar. Textos curatoriais originais baseados nas referências indicadas.",
-      "contact": ""
+      "contact": "text"
     }
   }
 };
